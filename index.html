@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #458598;
+        }
+        .done{
+            text-decoration: line-through;
+        }
+        #write{
+            text-align: center;
+        }
+        .container{
+            text-align: center;
+            text-shadow: 2px;
+        }
+        #todo-list{
+            text-align: center;
+            text-decoration: solid;
+            
+
+            
+        }
+        li{
+            border: 1px solid rgb(13, 3, 3);
+            margin-bottom: 2px;
+            text-decoration-style: solid;
+            background-color: rgb(117, 159, 195);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input type="text" id ="write">
+        <ul id ="todo-list" style="list-style-type: none;">
+
+        </ul>
+    </div>
+    <script>
+        let write = document.getElementById("write");
+        let todolist= document.getElementById("todo-list");
+        write.addEventListener("keyup",function(e){
+            if(e.key == "Enter"){
+                addTodo(this.value);
+                this.value='';
+            }
+                
+        })
+        function addTodo(value){
+            let list = document.createElement("li");
+            list.innerHTML = value;
+            todolist.appendChild(list);
+            list.addEventListener("click",function(){
+                this.classList.toggle('done');
+            })
+        }
+
+
+
+    </script>
+</body>
+</html>
